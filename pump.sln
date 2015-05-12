@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "pump", "pump.csproj", "{BB0909F6-8A88-47B7-AB12-A60702052533}"
+EndProject
+Global
+	GlobalSection(SourceCodeControl) = preSolution
+		SccNumberOfProjects = 1
+		SccProjectUniqueName0 = pump.csproj
+		SccProjectName0 = \u0022$/Information/Project_CS/Pump/Source/pump\u0022,\u0020CGJHAAAA
+		SccLocalPath0 = .
+		SccProvider0 = MSSCCI:Microsoft\u0020Visual\u0020SourceSafe
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BB0909F6-8A88-47B7-AB12-A60702052533}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB0909F6-8A88-47B7-AB12-A60702052533}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB0909F6-8A88-47B7-AB12-A60702052533}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB0909F6-8A88-47B7-AB12-A60702052533}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
