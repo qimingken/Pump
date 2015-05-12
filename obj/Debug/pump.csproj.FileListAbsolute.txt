@@ -3,7 +3,6 @@ F:\GitHub\Pump\bin\Debug\Pump.exe
 F:\GitHub\Pump\bin\Debug\Pump.pdb
 F:\GitHub\Pump\bin\Debug\ModbusCom.dll
 F:\GitHub\Pump\bin\Debug\MyP2P.dll
-F:\GitHub\Pump\obj\Debug\pump.csprojResolveAssemblyReference.cache
 F:\GitHub\Pump\obj\Debug\pump.Alarm.resources
 F:\GitHub\Pump\obj\Debug\pump.CraneinfoForm.resources
 F:\GitHub\Pump\obj\Debug\pump.DisplayData.resources
@@ -17,3 +16,4 @@ F:\GitHub\Pump\obj\Debug\pump.SearchAlarmData.resources
 F:\GitHub\Pump\obj\Debug\pump.csproj.GenerateResource.Cache
 F:\GitHub\Pump\obj\Debug\Pump.exe
 F:\GitHub\Pump\obj\Debug\Pump.pdb
+F:\GitHub\Pump\obj\Debug\pump.csprojResolveAssemblyReference.cache

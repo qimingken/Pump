@@ -13,6 +13,7 @@ namespace pump
     public partial class SearchAlarmData : Form
     {
         SQL sqlit = new SQL();
+        string cranetype;
         public SearchAlarmData()
         {
             InitializeComponent();
@@ -24,7 +25,8 @@ namespace pump
             craneidComBox.DataSource = ds.Tables[0];
             craneidComBox.DisplayMember = "crane_info";
             craneidComBox.ValueMember = "crane_info";
-            craneidComBox.Text = "";
+            //craneidComBox.Text = "";
+            craneidComBox.SelectedIndex = 0;
         }
 
         private void selectinfoCombox(object sender, EventArgs e)
@@ -55,7 +57,7 @@ namespace pump
             {
                 end = new DateTime(9999, 12, 12, 00, 00, 00);
             }
-            if ( craneidComBox.Text != "")
+            if (craneidComBox.Text != "")
             {
                 if (checkTable.Checked == false)
                 {
@@ -184,7 +186,7 @@ namespace pump
                         }
                     }
                 }
-                else 
+                else
                 {
                     DataView.Visible = true;
                     DataSet result = sqlit.SelectRunHistroy(null, craneidComBox.Text, begin, end);
@@ -197,7 +199,7 @@ namespace pump
                 MessageBox.Show("请填写设备信息！");
             }
 
-            
+
         }
 
         private void Begin_TimePicker_CloseUp(object sender, EventArgs e)
@@ -317,8 +319,8 @@ namespace pump
                     DataChart.SaveImage(savechart.FileName, System.Drawing.Imaging.ImageFormat.Bmp);
                 }
                 MessageBox.Show("保存成功！");
-                    
-            } 
+
+            }
         }
 
         private void getalarmdata_Click(object sender, EventArgs e)
@@ -588,11 +590,40 @@ namespace pump
 
         private void craneidComBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int a = craneidComBox.SelectedIndex;
-            if (a != 0)//Todo：
+            if (sqlit.selecttype(craneidComBox.Text) == "二级空压机")
             {
-                sqlit.selecttype(craneidComBox.Text);
+            this.infoComBox.Items.Clear();
+            this.infoComBox.Items.AddRange(new object[] {
+            "一级压力",
+            "一级温度",
+            "二级压力",
+            "二级温度",
+            "主机输出频率",
+            "主机输出电压",
+            "主机输出电流",
+            "主机输出功率",
+            "整机使用电量",
+            "整机使用排气量",
+            "冷却风机频率",
+            "冷却风机电流",
+            "运行累计时间",
+            "负载累计时间"});
+            }
+            else if (sqlit.selecttype(craneidComBox.Text) == "一级空压机")
+            {
+            this.infoComBox.Items.Clear();
+            this.infoComBox.Items.AddRange(new object[] {
+            "供气压力",
+            "排气温度",
+            "运行时间",
+            "加载时间",
+            "主机A相电流",
+            "油滤器使用时间",
+            "油分器使用时间",
+            "空滤器器使用时间",
+            "润滑油使用时间",
+            "润滑脂使用时间"});
             }
         }
-      }
+    }
 }
