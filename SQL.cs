@@ -76,7 +76,7 @@ namespace pump
         {
             Conn.Open();
             string[] result = new string[27];
-            string selectinfo = "select * from crane_info where crane_info ='" + Global.crane_info + "'";
+            string selectinfo = "select * from crane_info where crane_info ='" + Global.crane_info + "' and gboxid = '" + Global.gboxid +"' ";
             SqlCommand cmd = new SqlCommand(selectinfo, Conn);
             SqlDataReader _selectinfo = cmd.ExecuteReader();
             while (_selectinfo.Read())
@@ -152,7 +152,7 @@ namespace pump
         public void InsertAlarm_8060(string gboxid, string craneid, string area, int[] alarm)
         {
             Conn.Open();
-            string insertalarm = "insert into crane_alarm ([gboxid] ,[crane_info] ,[area], [check_time] ,[M7_3] ,[M7_4] ,[M7_5] ,[M7_6] ,[M7_8] ,[M7_9] ,[M7_14] ,[M7_15] ,[M8_0] ,[M8_1] ,[M8_3] ,[M8_4] ,[M8_5] ,[M8_6],[M8_7],[M8_8],[M8_13],[M8_14],[M8_15]) VALUES ('" + gboxid + "','" + craneid + "','" + area + "','" + DateTime.Now + "','" + alarm[3] + "','" + alarm[4] + "','" + alarm[5] + "','" + alarm[6] + "','" + alarm[8] + "','" + alarm[9] + "','" + alarm[14] + "','" + alarm[15] + "','" + alarm[16] + "','" + alarm[17] + "','" + alarm[19] + "','" + alarm[20] + "','" + alarm[21] + "','" + alarm[22] + "','" + alarm[23] + "','" + alarm[24] + "','" + alarm[29] + "','" + alarm[30] + "','" + alarm[31] + "')";
+            string insertalarm = "insert into crane_alarm ([gboxid] ,[crane_info] ,[area], [check_time] ,[M7_3] ,[M7_4] ,[M7_5] ,[M7_6] ,[M7_7] ,[M7_8] ,[M7_9] ,[M7_14] ,[M7_15] ,[M8_0] ,[M8_1] ,[M8_3] ,[M8_4] ,[M8_5] ,[M8_6],[M8_7],[M8_8],[M8_13],[M8_14],[M8_15]) VALUES ('" + gboxid + "','" + craneid + "','" + area + "','" + DateTime.Now + "','" + alarm[3] + "','" + alarm[4] + "','" + alarm[5] + "','" + alarm[6] + "','" + alarm[7] + "','" + alarm[8] + "','" + alarm[9] + "','" + alarm[14] + "','" + alarm[15] + "','" + alarm[16] + "','" + alarm[17] + "','" + alarm[19] + "','" + alarm[20] + "','" + alarm[21] + "','" + alarm[22] + "','" + alarm[23] + "','" + alarm[24] + "','" + alarm[29] + "','" + alarm[30] + "','" + alarm[31] + "')";
 
             SqlCommand _insertalarm = new SqlCommand(insertalarm, Conn);
             try

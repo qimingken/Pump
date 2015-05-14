@@ -67,6 +67,8 @@ namespace pump
 
                 node.Name = row["area"].ToString();
                 childnode.Name = row["crane_info"].ToString();
+                childnode.Tag = gboxid;
+
                 if (!root.Nodes.ContainsKey(node.Name))
                 {
                     root.Nodes.Add(node);
@@ -177,10 +179,11 @@ namespace pump
 
                 _craneinfoForm.insinfo_button.Text = "编辑";
                 Global.crane_info = crane_tree.SelectedNode.Name;//赋值crane_info到全局变量
+                Global.gboxid = crane_tree.SelectedNode.Tag.ToString();//赋值GboxID到全局变量
                 string[] craneinfo = sqlit.SelectCraneinfo();
-                _craneinfoForm.area_ComboBox.Text = craneinfo[0];//赋值area到全局变量       //读取数据库到控件
+                Global.area = _craneinfoForm.area_ComboBox.Text = craneinfo[0];//赋值area到全局变量       //读取数据库到控件
                 _craneinfoForm.crane_info_TextBox.Text = craneinfo[1];
-                Global.gboxid = _craneinfoForm.gboxid_TextBox.Text = craneinfo[2];//赋值GboxID到全局变量
+                _craneinfoForm.gboxid_TextBox.Text = craneinfo[2];//
                 Global.crane_type = _craneinfoForm.crane_type_ComboBox.Text = craneinfo[3];//赋值设备类型crane_type到全局变量
                 if (Global.crane_type == "一级空压机")
                 {
@@ -463,8 +466,7 @@ namespace pump
 
                         case 0:
                             {
-                                Tnode.ForeColor = System.Drawing.Color.Black;
-                                Tnode.Parent.ForeColor = System.Drawing.Color.Black;
+                                Tnode.ForeColor = System.Drawing.Color.Green;
                                 break;
                             }
                         case 1:
@@ -475,7 +477,6 @@ namespace pump
                         case 2:
                             {
                                 Tnode.ForeColor = System.Drawing.Color.Red;
-                                Tnode.Parent.ForeColor = System.Drawing.Color.Red;
                                 break;
                             }
                     }

@@ -38,7 +38,7 @@ namespace pump
                     lable6002.Text = "主机A相电流：";
                     lable6003.Text = "油滤器使用时间：";
                     lable6004.Text = "油分器使用时间：";
-                    lable6005.Text = "空滤器器使用时间：";
+                    lable6005.Text = "空滤器使用时间：";
                     lable6006.Text = "润滑油使用时间：";
                     lable6007.Text = "润滑脂使用时间：";
                     lable6008.Text = "";
@@ -49,9 +49,9 @@ namespace pump
                     D6009_lab.Text = "";
                     D6010_lab.Text = "";
                     D6011_lab.Text = "";
-                    lablerun1.Location = new System.Drawing.Point(34, 181);
+                    lablerun1.Location = new System.Drawing.Point(355, 181);
                     runstat_lab.Location = new System.Drawing.Point(199, 181);
-                    lablerun2.Location = new System.Drawing.Point(355, 181);
+                    lablerun2.Location = new System.Drawing.Point(34, 181);
                     runstat2_lab.Location = new System.Drawing.Point(529, 181);
                     break;
                 case "二级空压机" :
@@ -102,7 +102,7 @@ namespace pump
                     D6002_lab.Text = (runstatus[4] * 1.0F / 10).ToString() + "A";//主机A相电流
                     D6003_lab.Text = runstatus[10].ToString() + "H";//油滤器使用时间
                     D6004_lab.Text = runstatus[11].ToString() + "H";//油分器使用时间
-                    D6005_lab.Text = runstatus[12].ToString() + "H";//空滤器器使用时间
+                    D6005_lab.Text = runstatus[12].ToString() + "H";//空滤器使用时间
                     D6006_lab.Text = runstatus[13].ToString() + "H";//润滑油使用时间
                     D6007_lab.Text = runstatus[14].ToString() + "H";//润滑脂使用时间
                     D6008_lab.Text = "";

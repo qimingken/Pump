@@ -57,7 +57,7 @@ namespace pump
             {
                 end = new DateTime(9999, 12, 12, 00, 00, 00);
             }
-            if (craneidComBox.Text != "")
+            if ( craneidComBox.Text != "")
             {
                 if (checkTable.Checked == false)
                 {
@@ -183,14 +183,117 @@ namespace pump
                                 DataChart.DataBind();
                                 DataChart.ChartAreas[0].AxisY.Title = "H(小时)";
                                 break;
+                            case "供气压力":
+                                DataChart.DataSource = result.Tables[0];
+                                DataChart.Series[0].XValueMember = "check_time";
+                                DataChart.Series[0].YValueMembers = "D6080_0";
+                                DataChart.Series[0].Name = "供气压力";
+                                DataChart.DataBind();
+                                DataChart.ChartAreas[0].AxisY.Title = "Mpa(兆帕)";
+                                break;
+                            case "排气温度":
+                                DataChart.DataSource = result.Tables[0];
+                                DataChart.Series[0].XValueMember = "check_time";
+                                DataChart.Series[0].YValueMembers = "D6080_1";
+                                DataChart.Series[0].Name = "排气温度";
+                                DataChart.DataBind();
+                                DataChart.ChartAreas[0].AxisY.Title = "℃(摄氏度)";
+                                break;
+                            case "运行时间":
+                                DataChart.DataSource = result.Tables[0];
+                                DataChart.Series[0].XValueMember = "check_time";
+                                DataChart.Series[0].YValueMembers = "D6080_2";
+                                DataChart.Series[0].Name = "运行时间";
+                                DataChart.DataBind();
+                                DataChart.ChartAreas[0].AxisY.Title = "H(小时)";
+                                break;
+                            case "加载时间":
+                                DataChart.DataSource = result.Tables[0];
+                                DataChart.Series[0].XValueMember = "check_time";
+                                DataChart.Series[0].YValueMembers = "D6080_3";
+                                DataChart.Series[0].Name = "加载时间";
+                                DataChart.DataBind();
+                                DataChart.ChartAreas[0].AxisY.Title = "H(小时)";
+                                break;
+                            case "主机A相电流":
+                                DataChart.DataSource = result.Tables[0];
+                                DataChart.Series[0].XValueMember = "check_time";
+                                DataChart.Series[0].YValueMembers = "D6080_4";
+                                DataChart.Series[0].Name = "主机A相电流";
+                                DataChart.DataBind();
+                                DataChart.ChartAreas[0].AxisY.Title = "A(安培)";
+                                break;
+                            case "油滤器使用时间":
+                                DataChart.DataSource = result.Tables[0];
+                                DataChart.Series[0].XValueMember = "check_time";
+                                DataChart.Series[0].YValueMembers = "D6080_10";
+                                DataChart.Series[0].Name = "油滤器使用时间";
+                                DataChart.DataBind();
+                                DataChart.ChartAreas[0].AxisY.Title = "H(小时)";
+                                break;
+                            case "油分器使用时间":
+                                DataChart.DataSource = result.Tables[0];
+                                DataChart.Series[0].XValueMember = "check_time";
+                                DataChart.Series[0].YValueMembers = "D6080_11";
+                                DataChart.Series[0].Name = "油分器使用时间";
+                                DataChart.DataBind();
+                                DataChart.ChartAreas[0].AxisY.Title = "H(小时)";
+                                break;
+                            case "空滤器使用时间":
+                                DataChart.DataSource = result.Tables[0];
+                                DataChart.Series[0].XValueMember = "check_time";
+                                DataChart.Series[0].YValueMembers = "D6080_12";
+                                DataChart.Series[0].Name = "空滤器使用时间";
+                                DataChart.DataBind();
+                                DataChart.ChartAreas[0].AxisY.Title = "H(小时)";
+                                break;
+                            case "润滑油使用时间":
+                                DataChart.DataSource = result.Tables[0];
+                                DataChart.Series[0].XValueMember = "check_time";
+                                DataChart.Series[0].YValueMembers = "D6080_13";
+                                DataChart.Series[0].Name = "润滑油使用时间";
+                                DataChart.DataBind();
+                                DataChart.ChartAreas[0].AxisY.Title = "H(小时)";
+                                break;
+                           case "润滑脂使用时间":
+                                DataChart.DataSource = result.Tables[0];
+                                DataChart.Series[0].XValueMember = "check_time";
+                                DataChart.Series[0].YValueMembers = "D6080_13";
+                                DataChart.Series[0].Name = "润滑脂使用时间";
+                                DataChart.DataBind();
+                                DataChart.ChartAreas[0].AxisY.Title = "H(小时)";
+                                break;
                         }
                     }
                 }
-                else
+                else 
                 {
                     DataView.Visible = true;
                     DataSet result = sqlit.SelectRunHistroy(null, craneidComBox.Text, begin, end);
                     DataView.DataSource = result.Tables[0];
+                    if (cranetype == "一级空压机")
+                    {
+                        for (int cellnumber = 4; cellnumber < 18; cellnumber++)
+                        {
+                            DataView.Columns[cellnumber].Visible = false;
+                        }
+                        for (int cellnumber = 18; cellnumber < 28; cellnumber++)
+                        {
+                            DataView.Columns[cellnumber].Visible = true;
+                        }
+
+                    }
+                    if (cranetype == "二级空压机")
+                    {
+                        for (int cellnumber = 4; cellnumber < 18; cellnumber++)
+                        {
+                            DataView.Columns[cellnumber].Visible = true;
+                        }
+                        for (int cellnumber = 18; cellnumber < 28; cellnumber++)
+                        {
+                            DataView.Columns[cellnumber].Visible = false;
+                        }
+                    }
                 }
 
             }
@@ -199,7 +302,7 @@ namespace pump
                 MessageBox.Show("请填写设备信息！");
             }
 
-
+            
         }
 
         private void Begin_TimePicker_CloseUp(object sender, EventArgs e)
@@ -254,7 +357,6 @@ namespace pump
             }
             DataSet result = sqlit.SelectRunHistroy(null, craneidComBox.Text, begin, end);
             DataTable dt = result.Tables[0];
-
             if (saveexcel.ShowDialog() == DialogResult.Cancel)
             {
                 return;
@@ -281,7 +383,7 @@ namespace pump
             //        data += ",";
             //    }
             //}
-            data += "GBOX ID,设备名称,所在区域,采集时间,一级压力,一级温度,二级压力,二级温度,主机输出频率,主机输出电压,主机输出电流,主机输出功率,整机使用电量,整机使用排气量,冷却风机频率,冷却风机电流,运行累计时间,负载累计时间";
+            data += "GBOX ID,设备名称,所在区域,采集时间,一级压力,一级温度,二级压力,二级温度,主机输出频率,主机输出电压,主机输出电流,主机输出功率,整机使用电量,整机使用排气量,冷却风机频率,冷却风机电流,运行累计时间,负载累计时间,供气压力,排气温度,运行时间,加载时间,主机A相电流,油滤器使用时间,油分器使用时间,空滤器使用时间,润滑油使用时间,润滑脂使用时间,";
             sw.WriteLine(data);
             for (int i = 0; i < dt.Rows.Count; i++)
             {
@@ -338,7 +440,7 @@ namespace pump
             for (int rowslength = 0; rowslength < result.Tables[0].Rows.Count; rowslength++)
             {
                 string alarminfo = "";
-                for (int cellnumber = 4; cellnumber < 41; cellnumber++)
+                for (int cellnumber = 4; cellnumber < 62; cellnumber++)
                 {
                     string tmp = result.Tables[0].Rows[rowslength][cellnumber].ToString();
                     if (tmp == "True")
@@ -535,6 +637,106 @@ namespace pump
                                     alarminfo += "一级压缩排气温度超限 ";
                                     break;
                                 }
+                            case 42:
+                                {
+                                    alarminfo += "排气温度高 ";
+                                    break;
+                                }
+                            case 43:
+                                {
+                                    alarminfo += "相序错误 ";
+                                    break;
+                                }
+                            case 44:
+                                {
+                                    alarminfo += "主电机电流故障 ";
+                                    break;
+                                }
+                            case 45:
+                                {
+                                    alarminfo += "空滤器堵塞 ";
+                                    break;
+                                }
+                            case 46:
+                                {
+                                    alarminfo += "油分器堵塞 ";
+                                    break;
+                                }
+                            case 47:
+                                {
+                                    alarminfo += "油滤器堵塞 ";
+                                    break;
+                                }
+                            case 48:
+                                {
+                                    alarminfo += "风机电流故障 ";
+                                    break;
+                                }
+                            case 49:
+                                {
+                                    alarminfo += "供气压力高 ";
+                                    break;
+                                }
+                            case 50:
+                                {
+                                    alarminfo += "空久停机 ";
+                                    break;
+                                }
+                            case 51:
+                                {
+                                    alarminfo += "报警 ";
+                                    break;
+                                }
+                            case 52:
+                                {
+                                    alarminfo += "预警 ";
+                                    break;
+                                }
+                            case 53:
+                                {
+                                    alarminfo += "润滑脂使用时间到 ";
+                                    break;
+                                }
+                            case 54:
+                                {
+                                    alarminfo += "润滑油使用时间到 ";
+                                    break;
+                                }
+                            case 55:
+                                {
+                                    alarminfo += "空滤器使用时间到 ";
+                                    break;
+                                }
+                            case 56:
+                                {
+                                    alarminfo += "油分器使用时间到 ";
+                                    break;
+                                }
+                            case 57:
+                                {
+                                    alarminfo += "油滤器使用时间到 ";
+                                    break;
+                                }
+                            case 58:
+                                {
+                                    alarminfo += "排气温度高预警 ";
+                                    break;
+                                }
+                            case 59:
+                                {
+                                    alarminfo += "缺水 ";
+                                    break;
+                                }
+                            case 60:
+                                {
+                                    alarminfo += "排气温度传感器失灵 ";
+                                    break;
+                                }
+                            case 61:
+                                {
+                                    alarminfo += "供气压力传感器失灵 ";
+                                    break;
+                                }
                         }
                     }
                 }
@@ -590,10 +792,11 @@ namespace pump
 
         private void craneidComBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (sqlit.selecttype(craneidComBox.Text) == "二级空压机")
+            cranetype = sqlit.selecttype(craneidComBox.Text);
+            if (cranetype == "二级空压机")
             {
-            this.infoComBox.Items.Clear();
-            this.infoComBox.Items.AddRange(new object[] {
+                this.infoComBox.Items.Clear();
+                this.infoComBox.Items.AddRange(new object[] {
             "一级压力",
             "一级温度",
             "二级压力",
@@ -609,10 +812,10 @@ namespace pump
             "运行累计时间",
             "负载累计时间"});
             }
-            else if (sqlit.selecttype(craneidComBox.Text) == "一级空压机")
+            else if (cranetype == "一级空压机")
             {
-            this.infoComBox.Items.Clear();
-            this.infoComBox.Items.AddRange(new object[] {
+                this.infoComBox.Items.Clear();
+                this.infoComBox.Items.AddRange(new object[] {
             "供气压力",
             "排气温度",
             "运行时间",
@@ -620,7 +823,7 @@ namespace pump
             "主机A相电流",
             "油滤器使用时间",
             "油分器使用时间",
-            "空滤器器使用时间",
+            "空滤器使用时间",
             "润滑油使用时间",
             "润滑脂使用时间"});
             }

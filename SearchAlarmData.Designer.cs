@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.SearchPanel = new System.Windows.Forms.Panel();
             this.getalarmdata = new System.Windows.Forms.Button();
             this.savechart_button = new System.Windows.Forms.Button();
@@ -50,6 +50,7 @@
             this.DataChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.saveexcel = new System.Windows.Forms.SaveFileDialog();
             this.DataView = new System.Windows.Forms.DataGridView();
+            this.savechart = new System.Windows.Forms.SaveFileDialog();
             this.gboxid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.crane_info = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.area = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -68,7 +69,16 @@
             this.D6009 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.D6010 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.D6011 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.savechart = new System.Windows.Forms.SaveFileDialog();
+            this.D6080_0 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.D6080_1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.D6080_2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.D6080_3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.D6080_4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.D6080_10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.D6080_11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.D6080_12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.D6080_13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.D6080_14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SearchPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataChart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataView)).BeginInit();
@@ -255,18 +265,18 @@
             this.DataChart.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea1.Name = "ChartArea1";
-            this.DataChart.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.DataChart.Legends.Add(legend1);
+            chartArea4.Name = "ChartArea1";
+            this.DataChart.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            this.DataChart.Legends.Add(legend4);
             this.DataChart.Location = new System.Drawing.Point(0, 46);
             this.DataChart.Name = "DataChart";
-            series1.BorderWidth = 2;
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.DataChart.Series.Add(series1);
+            series4.BorderWidth = 2;
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series4.Legend = "Legend1";
+            series4.Name = "Series1";
+            this.DataChart.Series.Add(series4);
             this.DataChart.Size = new System.Drawing.Size(1166, 684);
             this.DataChart.TabIndex = 2;
             this.DataChart.Text = "chart1";
@@ -298,7 +308,17 @@
             this.D6008,
             this.D6009,
             this.D6010,
-            this.D6011});
+            this.D6011,
+            this.D6080_0,
+            this.D6080_1,
+            this.D6080_2,
+            this.D6080_3,
+            this.D6080_4,
+            this.D6080_10,
+            this.D6080_11,
+            this.D6080_12,
+            this.D6080_13,
+            this.D6080_14});
             this.DataView.Location = new System.Drawing.Point(0, 46);
             this.DataView.Name = "DataView";
             this.DataView.ReadOnly = true;
@@ -444,6 +464,81 @@
             this.D6011.ReadOnly = true;
             this.D6011.Width = 120;
             // 
+            // D6080_0
+            // 
+            this.D6080_0.DataPropertyName = "D6080_0";
+            this.D6080_0.HeaderText = "供气压力";
+            this.D6080_0.Name = "D6080_0";
+            this.D6080_0.ReadOnly = true;
+            // 
+            // D6080_1
+            // 
+            this.D6080_1.DataPropertyName = "D6080_1";
+            this.D6080_1.HeaderText = "排气温度";
+            this.D6080_1.Name = "D6080_1";
+            this.D6080_1.ReadOnly = true;
+            // 
+            // D6080_2
+            // 
+            this.D6080_2.DataPropertyName = "D6080_2";
+            this.D6080_2.HeaderText = "运行时间";
+            this.D6080_2.Name = "D6080_2";
+            this.D6080_2.ReadOnly = true;
+            // 
+            // D6080_3
+            // 
+            this.D6080_3.DataPropertyName = "D6080_3";
+            this.D6080_3.HeaderText = "加载时间";
+            this.D6080_3.Name = "D6080_3";
+            this.D6080_3.ReadOnly = true;
+            // 
+            // D6080_4
+            // 
+            this.D6080_4.DataPropertyName = "D6080_4";
+            this.D6080_4.HeaderText = "主机A相电流";
+            this.D6080_4.Name = "D6080_4";
+            this.D6080_4.ReadOnly = true;
+            // 
+            // D6080_10
+            // 
+            this.D6080_10.DataPropertyName = "D6080_10";
+            this.D6080_10.HeaderText = "油滤器使用时间";
+            this.D6080_10.Name = "D6080_10";
+            this.D6080_10.ReadOnly = true;
+            this.D6080_10.Width = 120;
+            // 
+            // D6080_11
+            // 
+            this.D6080_11.DataPropertyName = "D6080_11";
+            this.D6080_11.HeaderText = "油分器使用时间";
+            this.D6080_11.Name = "D6080_11";
+            this.D6080_11.ReadOnly = true;
+            this.D6080_11.Width = 120;
+            // 
+            // D6080_12
+            // 
+            this.D6080_12.DataPropertyName = "D6080_12";
+            this.D6080_12.HeaderText = "空滤器使用时间";
+            this.D6080_12.Name = "D6080_12";
+            this.D6080_12.ReadOnly = true;
+            this.D6080_12.Width = 120;
+            // 
+            // D6080_13
+            // 
+            this.D6080_13.DataPropertyName = "D6080_13";
+            this.D6080_13.HeaderText = "润滑油使用时间";
+            this.D6080_13.Name = "D6080_13";
+            this.D6080_13.ReadOnly = true;
+            this.D6080_13.Width = 120;
+            // 
+            // D6080_14
+            // 
+            this.D6080_14.DataPropertyName = "D6080_14";
+            this.D6080_14.HeaderText = "润滑脂使用时间";
+            this.D6080_14.Name = "D6080_14";
+            this.D6080_14.ReadOnly = true;
+            this.D6080_14.Width = 120;
+            // 
             // SearchAlarmData
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -484,6 +579,7 @@
         private System.Windows.Forms.CheckBox checkTable;
         private System.Windows.Forms.Button savechart_button;
         private System.Windows.Forms.SaveFileDialog savechart;
+        private System.Windows.Forms.Button getalarmdata;
         private System.Windows.Forms.DataGridViewTextBoxColumn gboxid;
         private System.Windows.Forms.DataGridViewTextBoxColumn crane_info;
         private System.Windows.Forms.DataGridViewTextBoxColumn area;
@@ -502,6 +598,15 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn D6009;
         private System.Windows.Forms.DataGridViewTextBoxColumn D6010;
         private System.Windows.Forms.DataGridViewTextBoxColumn D6011;
-        private System.Windows.Forms.Button getalarmdata;
+        private System.Windows.Forms.DataGridViewTextBoxColumn D6080_0;
+        private System.Windows.Forms.DataGridViewTextBoxColumn D6080_1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn D6080_2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn D6080_3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn D6080_4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn D6080_10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn D6080_11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn D6080_12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn D6080_13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn D6080_14;
     }
 }

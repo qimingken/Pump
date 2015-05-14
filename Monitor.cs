@@ -85,10 +85,13 @@ namespace pump
                             }
                             if (Alarm_8060[3] == 1 || Alarm_8060[4] == 1 || Alarm_8060[5] == 1 || Alarm_8060[6] == 1 || Alarm_8060[8] == 1 || Alarm_8060[9] == 1 || Alarm_8060[14] == 1 || Alarm_8060[15] == 1 || Alarm_8060[16] == 1 || Alarm_8060[17] == 1 || Alarm_8060[19] == 1 || Alarm_8060[20] == 1 || Alarm_8060[21] == 1 || Alarm_8060[22] == 1 || Alarm_8060[23] == 1 || Alarm_8060[24] == 1 || Alarm_8060[29] == 1 || Alarm_8060[30] == 1 || Alarm_8060[31] == 1)
                             {
-                                sqlit.InsertAlarm(GboxID, craneid, area, Alarm_8060);
+                                sqlit.InsertAlarm_8060(GboxID, craneid, area, Alarm_8060);
                                 SendMessage(pForm, 0x400, 2, new StringBuilder(craneid));
                             }
-                            SendMessage(pForm, 0x400, 0, new StringBuilder(craneid));
+                            else 
+                            {
+                                SendMessage(pForm, 0x400, 0, new StringBuilder(craneid));
+                            }
                             break;
 
                         case "二级空压机":
@@ -103,7 +106,10 @@ namespace pump
                                 sqlit.InsertAlarm(GboxID, craneid, area, Alarm);
                                 SendMessage(pForm, 0x400, 2, new StringBuilder(craneid));
                             }
-                            SendMessage(pForm, 0x400, 0, new StringBuilder(craneid));
+                            else
+                            {
+                                SendMessage(pForm, 0x400, 0, new StringBuilder(craneid)); 
+                            }
                             break;
                     }
                 }

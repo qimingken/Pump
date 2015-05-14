@@ -27,7 +27,7 @@ namespace pump
             for (int rowslength = 0; rowslength < result.Tables[0].Rows.Count; rowslength++)
             {
                 string alarminfo = "";
-                for (int cellnumber = 4; cellnumber < 41; cellnumber++)
+                for (int cellnumber = 4; cellnumber < 62; cellnumber++)
                 {
                     string tmp = result.Tables[0].Rows[rowslength][cellnumber].ToString();
                     if (tmp == "True")
@@ -222,6 +222,106 @@ namespace pump
                             case 41:
                                 {
                                     alarminfo += "一级压缩排气温度超限 ";
+                                    break;
+                                }
+                            case 42:
+                                {
+                                    alarminfo += "排气温度高 ";
+                                    break;
+                                }
+                            case 43:
+                                {
+                                    alarminfo += "相序错误 ";
+                                    break;
+                                }
+                            case 44:
+                                {
+                                    alarminfo += "主电机电流故障 ";
+                                    break;
+                                }
+                            case 45:
+                                {
+                                    alarminfo += "空滤器堵塞 ";
+                                    break;
+                                }
+                            case 46:
+                                {
+                                    alarminfo += "油分器堵塞 ";
+                                    break;
+                                }
+                            case 47:
+                                {
+                                    alarminfo += "油滤器堵塞 ";
+                                    break;
+                                }
+                            case 48:
+                                {
+                                    alarminfo += "风机电流故障 ";
+                                    break;
+                                }
+                            case 49:
+                                {
+                                    alarminfo += "供气压力高 ";
+                                    break;
+                                }
+                            case 50:
+                                {
+                                    alarminfo += "空久停机 ";
+                                    break;
+                                }
+                            case 51:
+                                {
+                                    alarminfo += "报警 ";
+                                    break;
+                                }
+                            case 52:
+                                {
+                                    alarminfo += "预警 ";
+                                    break;
+                                }
+                            case 53:
+                                {
+                                    alarminfo += "润滑脂使用时间到 ";
+                                    break;
+                                }
+                            case 54:
+                                {
+                                    alarminfo += "润滑油使用时间到 ";
+                                    break;
+                                }
+                            case 55:
+                                {
+                                    alarminfo += "空滤器使用时间到 ";
+                                    break;
+                                }
+                            case 56:
+                                {
+                                    alarminfo += "油分器使用时间到 ";
+                                    break;
+                                }
+                            case 57:
+                                {
+                                    alarminfo += "油滤器使用时间到 ";
+                                    break;
+                                }
+                            case 58:
+                                {
+                                    alarminfo += "排气温度高预警 ";
+                                    break;
+                                }
+                            case 59:
+                                {
+                                    alarminfo += "缺水 ";
+                                    break;
+                                }
+                            case 60:
+                                {
+                                    alarminfo += "排气温度传感器失灵 ";
+                                    break;
+                                }
+                            case 61:
+                                {
+                                    alarminfo += "供气压力传感器失灵 ";
                                     break;
                                 }
                         }
